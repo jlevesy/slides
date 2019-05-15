@@ -1,0 +1,47 @@
+= What is Traefik ?
+
+== The world of production is changing
+
+* Containers as a standard execution unit
+* Era of orchestrators and flexible workloads
+* Everything goes dynamic
+
+== What about reverse proxies ?
+
+* Static configuration in a dynamic environment
+* HTTPS is possible, yet painful
+* Lack of observability
+
+== Say hello to Traefik
+
+* Cheese based HTTP/HTTPS reverse proxy
+* Dynamic at its core
+* Versatile
+* Highly observable
+* Let's encrypt built-in
+* Advanced features out of the box
+
+[.notes]
+--
+* Versatile : we support a LOT of environments, orchestrators, KVs, monitoring systems
+--
+
+== All included into a single binary
+
+== Open Source & Written in Golang
+
+link:https://github.com/containous/traefik[Contributions are welcome !]
+
+[.notes]
+--
+* Especially with the upcomming v2 !
+--
+
+== And it gets better with time !
+
+* v2.0 in alpha stage
+* Flexible architecture
+* TCP support
+* Updated Kubernetes ingress configuration based on CRD
+* Improved routing rule syntax
+* And link:https://blog.containo.us/back-to-traefik-2-0-2f9aa17be305[more to come] !

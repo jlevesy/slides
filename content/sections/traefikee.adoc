@@ -1,0 +1,73 @@
+= How to make Traefik ready for the enterprise ?
+
+== We gave him a suit !
+
+image::traefikee.png["Traefikee Logo", height=500px]
+
+[.notes]
+--
+* And boom, sold, kthx bye.
+--
+
+== What a company wants from a reverse proxy ?
+
+* Reliability
+* Security
+* Full support
+* All the features from Traefik !
+* Scalability
+
+== So we made Traefik distributed !
+
+[.notes]
+--
+* TraefikEE is a cluster of traefik instances working together.
+* You operate your cluster of reverse proxies as it is one instance.
+** Exit rsyncing your certificates and your configuration between your clusters.
+--
+
+== !
+
+[.stretch]
+image::tee-arch.png["Traefikee Logo", height=800px]
+
+[.notes]
+--
+* TraefikEE is at the edge of your infrastructure
+* Separation of concerns
+* Control plane gets the configuration and pushes to the data plane
+* Data plane is where the data flows
+* Gain on reliability, each component can be redunded.
+* Gain on security, now the control plane is isolated from the outside traffic.
+* Gain on scalability, each component is scalable.
+--
+
+== And there is more !
+
+* No restart needed to configure the proxy
+* Backup and restore system
+* Distributed features out of the box
+** Let's encrypt support
+** Rate limiting (1.1)
+** Max connections (1.1)
+** Circuit breaker (1.2)
+
+[.notes]
+--
+* TEE is still young, we setup up the foundations, now we're building on them.
+--
+
+== All included into a single binary
+
+(No need of an external key value store)
+
+== Actually, there is another binary
+
+`traefikeectl` our CLI
+
+* Installs TraefikEE automatically on k8s and swarm
+* Deploys configuration
+* Get cluster informations
+* Create backups
+* Fetch the logs
+
