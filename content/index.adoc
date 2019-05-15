@@ -9,11 +9,25 @@ Go Lightning Talk
 
 image::qrcode.png["QRCode to this presentation",height=150]
 
+[.small]
+{presentationUrl}[{presentationUrl}]
+
+[{invert}]
+== How to use these slides?
+
+* *Browse the slides:* Use the arrows
+** Change chapter: Left/Right arrows
+** Next or previous slide: Top and bottom arrows
+
+* *Overview of the slides:* keyboard's shortcut "kbd:[o]"
+
+* *Speaker mode (and notes):* keyboard's shortcut "kbd:[s]"
+
 // //// Speaker Slide and Company slide
 == Whoami
 
 * Julien LEVESY:
-// ** link:https://traefik.io/[Træfik]'s Developer @ link:https://containo.us/[Containous] 
+// ** link:https://traefik.io/[Traefik]'s Developer @ link:https://containo.us/[Containous] 
 // * link:https://twitter.com/JLevesy[icon:twitter[] @JLevesy]
 // * link:https://github.com/jlevesy[icon:github[] jlevesy]
 
@@ -31,4 +45,14 @@ image::qrcode.png["QRCode to this presentation",height=150]
 
 // * *Speaker mode (and notes):* keyboard's shortcut "kbd:[s]"
 
-== Thanks
+== Thank you!
+
+link:https://twitter.com/JLevesy[icon:twitter[] @JLevesy]
+link:https://github.com/jlevesy[icon:github[] jlevesy]
+
+image::qrcode.png["QRCode to this presentation",height=150]
+
+[.small]
+- link:{presentationUrl}[Slides (HTML): {presentationUrl}]
+- link:{presentationUrl}/slides.pdf[Slides (PDF): {presentationUrl}/slides.pdf]
+- link:{repositoryUrl}[Source on icon:github[]: {repositoryUrl}]
