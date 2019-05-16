@@ -1,0 +1,78 @@
+= Docker Swarm Demo
+
+== Our Infrastructure
+
+* Docker Swarm cluster
+** 3 managers
+** 3 workers
+* Created using link:https://github.com/jlevesy/sind[sind]
+
+[.notes]
+--
+* Create the infrastructure, explain the -p flags.
+** `sind create --managers=3 --workers=3 -p 55055:55055 -p 80:80 -p 443:443 -p 8080:8080`
+* Push our application image to the cluster
+** Because I don't trust internet
+** `sind push jlevesy/webapp:latest store/containous/traefikee:v1.0.1`
+* Configure our docker client to communicate with the swarm cluster
+** `eval $(sind env)`
+--
+
+== Install TraefikEE
+
+[code, bash]
+----
+traefikeectl install --swarm --dashboard --licensekey=${TRAEFIKEE_LICENSE_KEY}
+----
+
+[.notes]
+--
+* `traefikeectl install --swarm --dashboard --licensekey=${TRAEFIKEE_LICENSE_KEY}`
+* `docker service ls`
+* `traefikeectl list-nodes`
+* link:http://dashboard.traefikee.io:8080[Check the dashboard]
+** Routing
+** Metrics
+** Custer
+--
+
+== Deploy an App
+[code, yaml]
+----
+include::../assets/swarm/webapp.yml[]
+----
+
+[.notes]
+--
+* `docker stack deploy -c ./content/assets/swarm/webapp.yml webapp`
+* `docker service ls`
+* Show that the dashboard has been updated
+* link:http://app.traefikee.io
+--
+
+== Operate TraefikEE
+[code, bash]
+----
+# enable TLS on 443
+traefikeectl deploy \
+    --docker.swarmmode \
+    --entryPoints='Name:http Address::80' \
+    --entryPoints='Name:https Address::443 TLS'
+
+# enable the metrics on the http port
+# (even if that is something you don't want to do !)
+traefikeectl deploy --docker.swarmmode --metrics.prometheus.entrypoint=http
+----
+
+== And When You're Done
+[code, bash]
+----
+# Uninstall traefikee
+traefikeectl uninstall
+
+# Delete the swarm cluster
+sind delete
+
+# Reconfigure your docker client
+unset DOCKER_HOST
+----

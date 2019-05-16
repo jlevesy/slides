@@ -1,6 +1,6 @@
-= How to make Traefik ready for the enterprise ?
+= How To Make Traefik Ready For The Enterprise ?
 
-== We gave him a suit !
+== We Gave It a Suit !
 
 image::traefikee.png["Traefikee Logo", height=500px]
 
@@ -9,7 +9,7 @@ image::traefikee.png["Traefikee Logo", height=500px]
 * And boom, sold, kthx bye.
 --
 
-== What a company wants from a reverse proxy ?
+== What a Company Wants From a Reverse Proxy ?
 
 * Reliability
 * Security
@@ -17,7 +17,7 @@ image::traefikee.png["Traefikee Logo", height=500px]
 * All the features from Traefik !
 * Scalability
 
-== So we made Traefik distributed !
+== So we Made Traefik Distributed !
 
 [.notes]
 --
@@ -42,7 +42,7 @@ image::tee-arch.png["Traefikee Logo", height=800px]
 * Gain on scalability, each component is scalable.
 --
 
-== And there is more !
+== And There Is More !
 
 * No restart needed to configure the proxy
 * Backup and restore system
@@ -57,11 +57,11 @@ image::tee-arch.png["Traefikee Logo", height=800px]
 * TEE is still young, we setup up the foundations, now we're building on them.
 --
 
-== All included into a single binary
+== All Included Into a Single Binary
 
 (No need of an external key value store)
 
-== Actually, there is another binary
+== Actually, There Is Another Binary
 
 `traefikeectl` our CLI
 
@@ -70,4 +70,3 @@ image::tee-arch.png["Traefikee Logo", height=800px]
 * Get cluster informations
 * Create backups
 * Fetch the logs
-

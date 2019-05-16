@@ -1,0 +1,18 @@
+version: '3.7'
+networks:
+  traefikee_net:
+    name: traefikee_net
+    external: true
+
+services:
+  whoami:
+    image: jlevesy/webapp:latest
+    deploy:
+      mode: replicated
+      replicas: 2
+      labels:
+        - "traefik.frontend.entryPoints=http,https"
+        - "traefik.frontend.rule=Host:app.traefikee.io"
+        - "traefik.port=80"
+    networks:
+      - traefikee_net
