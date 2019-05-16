@@ -30,7 +30,6 @@ traefikeectl install --swarm --dashboard --licensekey=${TRAEFIKEE_LICENSE_KEY}
 * `traefikeectl install --swarm --dashboard --licensekey=${TRAEFIKEE_LICENSE_KEY}`
 * `docker service ls`
 * `traefikeectl list-nodes`
-* link:http://dashboard.traefikee.io:8080[Check the dashboard]
 ** Routing
 ** Metrics
 ** Custer
@@ -47,7 +46,6 @@ include::../assets/swarm/webapp.yml[]
 * `docker stack deploy -c ./content/assets/swarm/webapp.yml webapp`
 * `docker service ls`
 * Show that the dashboard has been updated
-* link:http://app.traefikee.io
 --
 
 == Operate TraefikEE
