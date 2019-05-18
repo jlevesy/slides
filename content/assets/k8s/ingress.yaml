@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: whoami-ingress
+  namespace: playground
+spec:
+  rules:
+  - host: app.traefikee.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: whoami-service
+          servicePort: web

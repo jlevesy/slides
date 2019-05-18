@@ -1,0 +1,4 @@
+---
+dashboard:
+  type: ingress
+  host: dashboard.traefikee.io

@@ -6,7 +6,7 @@
 * Era of orchestrators and flexible workloads
 * Everything goes dynamic
 
-== What about reverse proxies ?
+== Reverse proxies need to adapt
 
 * Static configuration in a dynamic environment
 * HTTPS is possible, yet painful
@@ -14,7 +14,7 @@
 
 == Say hello to Traefik
 
-* Cheese based HTTP/HTTPS reverse proxy
+* First cheese powered HTTP/HTTPS reverse proxy
 * Dynamic at its core
 * Versatile
 * Highly observable

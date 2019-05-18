@@ -36,6 +36,8 @@ include::./sections/traefikee.adoc[]
 
 include::./sections/demo-swarm.adoc[]
 
+include::./sections/demo-k8s.adoc[]
+
 :leveloffset: -1
 
 == Thanks

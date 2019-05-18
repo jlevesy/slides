@@ -1,0 +1,63 @@
+= Kubernetes Demo
+
+== Our Infrastructure
+
+* Kubernetes Cluster
+** 1 Master
+** 2 Workers
+* Created using link:https://github.com/rancher/k3d[k3d]
+
+[.notes]
+--
+* Create the infrastructure
+** `k3d create --api-port 6550 --publish 80:80 --workers 2`
+** `export KUBECONFIG="$(k3d get-kubeconfig --name='k3s-default')"`
+** `kubectl get nodes`
+* Add a storage class and mark it as default
+** `kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml`
+** `kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-defaul    t-class":"true"}}}'`
+--
+
+== Install TraefikEE
+
+[code, bash]
+----
+traefikeectl install \
+  --kubernetes \
+  --dashboard \
+  --kubernetes.helmvaluespath=./assets/k8s/values.yaml \
+  --licensekey=${TRAEFIKEE_LICENSE_KEY}
+----
+
+[.notes]
+--
+* `traefikeectl install --kubernetes --dashboard --kubernetes.helmvaluespath=./assets/k8s/values.yaml --licensekey=${TRAEFIKEE_LICENSE_KEY}`
+* `traefikeectl list-nodes`
+* Show the dashboard at dashboard.traefikee.io
+--
+
+== Deploy an application
+
+[code, yaml]
+----
+include::../assets/k8s/ingress.yaml[]
+----
+
+[.notes]
+--
+* `kubectl apply -f assets/k8s/whoami.yaml`
+* `kubectl apply -f assets/k8s/ingress.yaml`
+--
+
+== And When You're Done
+[code, bash]
+----
+# Uninstall traefikee
+traefikeectl uninstall
+
+# Delete the swarm cluster
+k3d delete
+
+# Reconfigure your kube client
+unset KUBECONFIG
+----
